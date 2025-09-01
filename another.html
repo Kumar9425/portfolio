@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kumaraswamy D — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Kumaraswamy D — Python & Django enthusiast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a; --card:#111827; --muted:#94a3b8; --text:#e5e7eb;
+      --brand:#22d3ee; --brand-2:#a78bfa; --accent:#38bdf8;
+      --ring:rgba(34,211,238,.35); --radius:18px; --shadow:0 10px 30px rgba(2,6,23,.6);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:radial-gradient(1200px 800px at 10% -10%, rgba(56,189,248,.12), transparent 40%),radial-gradient(1000px 600px at 90% 0%, rgba(167,139,250,.10), transparent 40%), var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .container{width:min(1100px, 92%);margin-inline:auto}
+    .section{padding:84px 0}
+    .grid{display:grid;gap:28px}
+    header{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(148,163,184,.12)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{font-weight:700;letter-spacing:.3px}
+    .logo span{background:linear-gradient(90deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .nav a{padding:10px 14px;border-radius:12px;color:var(--muted);font-weight:500}
+    .nav a:hover,.nav a.active{color:white;background:rgba(148,163,184,.1)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(17,24,39,.7), rgba(17,24,39,.4));padding:32px;border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hello{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(56,189,248,.35);color:var(--accent);font-weight:600;font-size:.9rem;margin-bottom:10px}
+    h1{font-size:clamp(28px, 4.5vw, 48px);line-height:1.15;margin:10px 0 12px}
+    .subtitle{font-size:clamp(16px, 2.2vw, 18px);color:var(--muted)}
+    .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:12px;border:1px solid rgba(148,163,184,.18);display:inline-flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#0b1020;border:none}
+    .btn:hover{transform:translateY(-1px)}
+    .avatar-wrap{position:relative;text-align:center}
+    .avatar{position:relative;border-radius:50%;border:1px solid rgba(148,163,184,.15);overflow:hidden;width:200px;height:200px;object-fit:cover;margin:auto}
+    .card{background:linear-gradient(180deg, rgba(17,24,39,.85), rgba(17,24,39,.6));border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 10px} .muted{color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+    .pill{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;border:1px dashed rgba(148,163,184,.25);background:rgba(148,163,184,.06)}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px,1fr));gap:18px}
+    form{display:grid;gap:12px}
+    input,textarea{background:#0b1224;border:1px solid rgba(148,163,184,.2);color:var(--text);padding:12px 14px;border-radius:12px;outline:none}
+    input:focus,textarea:focus{box-shadow:0 0 0 4px var(--ring)}
+    textarea{min-height:120px;resize:vertical}
+    footer{padding:34px 0;border-top:1px solid rgba(148,163,184,.12);color:var(--muted);text-align:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <div class="container nav">
+    <div class="logo"><span>{ KD }</span> Portfolio</div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<main id="home" class="container section">
+  <div class="hero">
+    <div class="hero-card">
+      <span class="hello">👋 Hey, I’m Kumaraswamy D</span>
+      <h1><span id="type"></span></h1>
+      <p class="subtitle">Python/Django enthusiast with a knack for clean backends and responsive UIs. I enjoy building reliable APIs, crafting neat SQL, and polishing the front‑end details.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Contact Me</a>
+        <a class="btn" href="https://drive.google.com/file/d/1r6LQEhAcpeFGxcOod7YV29fKL0BvdIyh/view?usp=sharing" target="_blank">View Resume</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container grid" style="grid-template-columns:1fr 1fr; align-items:center">
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://lh3.googleusercontent.com/d/1ynwH-OZdDzaEjYl3DvWXhoX5WDUQLES_" alt="Kumaraswamy D">
+      <p style="margin-top:10px;font-weight:bold;font-size:18px;">Kumaraswamy D</p>
+    </div>
+    <div class="card">
+      <h3>About Me</h3>
+      <p class="muted">I am a fresher aspiring to build a career in full-stack development, with a strong focus on Python and Oracle. I am passionate about solving real-world problems, building practical applications, and continuously learning new technologies. I am also gaining hands-on experience in deploying full-stack projects.</p>
+      <h3>Highlights</h3>
+      <ul class="muted">
+        <li>Built Hospital Appointment Booking (mini‑project)</li>
+        <li>Smart Restaurant E‑Menu (IoT academic project)</li>
+        <li>Comfortable with Oracle SQL & Bootstrap</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="pill"><span>Python</span><small>Intermediate</small></div>
+      <div class="pill"><span>Django</span><small>Beginner‑Int</small></div>
+      <div class="pill"><span>HTML5</span><small>Advanced</small></div>
+      <div class="pill"><span>CSS3</span><small>Advanced</small></div>
+      <div class="pill"><span>Bootstrap</span><small>Intermediate</small></div>
+      <div class="pill"><span>Oracle SQL</span><small>Intermediate</small></div>
+      <div class="pill"><span>Git & GitHub</span><small>Working</small></div>
+      <div class="pill"><span>Command Line</span><small>Beginner</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="card project">
+        <div class="thumb">Hospital Appointment Booking</div>
+        <p class="muted">Doctor appointment scheduling system built with Python and Oracle SQL. Supports patient registration/login, slot creation and booking, and an admin dashboard for managing doctors, timings, and bookings.</p>
+        <a class="btn" href="https://drive.google.com/file/d/128-e21tQ3wTnoOgKYG8AFJlE6KUVKiUx/view?usp=sharing" target="_blank">View Code</a>
+      </article>
+      <article class="card project">
+        <div class="thumb">Smart Restaurant E‑Menu (IoT)</div>
+        <p class="muted">Academic project: touch‑based e‑menu with order flow to kitchen. ESP32 + simple web interface. Focus on usability and order tracking.</p>
+        <a class="btn" href="https://docs.google.com/document/d/10k8xYlXKT2VYKgGNTC-vh7-KOmZnw7w-r1u5co6gQBw/edit?usp=sharing" target="_blank">Case Study</a>
+      </article>
+      <article class="card project">
+        <div class="thumb">Password Generator</div>
+        <p class="muted">A Python project that generates secure random passwords with customizable length and complexity. Supports uppercase, lowercase, numbers, and special characters.</p>
+        <a class="btn" href="https://drive.google.com/file/d/1sIbD1snfSsGjkceYovO5GNnkfrVNzqrb/view?usp=sharing" target="_blank">View Code</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container grid" style="grid-template-columns:1fr 1fr; gap:24px;">
+    <div class="card">
+      <h3>Let’s work together</h3>
+      <p class="muted">Have an opportunity or just want to say hi? Drop a message — I’ll get back soon.</p>
+      <form id="contactForm">
+        <input type="text" name="user_name" placeholder="Your name" required>
+        <input type="email" name="user_email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button class="btn primary" type="submit">Send Message</button>
+        <p id="formStatus" class="muted"></p>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Quick Links</h3>
+      <ul class="muted">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="https://github.com/Kumar9425" target="_blank" rel="noreferrer">GitHub</a></li>
+        <li><a href="http://linkedin.com/in/kumaraswamy-d-2935492a4" target="_blank" rel="noreferrer">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="year"></span> • Kumaraswamy D • All rights reserved.</div>
+</footer>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){ emailjs.init("YOUR_USER_ID"); })(); // Replace with your EmailJS user ID
+
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',form)
+      .then(()=>{
+        status.textContent = 'Thanks! Your message has been sent.';
+        form.reset();
+      }, (err)=>{
+        status.textContent = 'Oops! Something went wrong.';
+        console.error(err);
+      });
+  });
+
+  // Typing effect
+  const roles = ['Backend Developer (Python/Django)','Web Developer (HTML • CSS • JS)','SQL & Data Enthusiast'];
+  let r=0,c=0,del=false;
+  const el=document.getElementById('type');
+  function tick(){
+    const word = roles[r];
+    el.textContent = del ? word.slice(0,c--) : word.slice(0,c++);
+    if(!del && c>word.length+6) del=true;
+    if(del && c<0){ del=false; r=(r+1)%roles.length;}
+    setTimeout(tick,80);
+  }
+  tick();
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section, main');
+  const navLinks = document.querySelectorAll('header nav a');
+  const makeActive=()=>{
+    let idx=0;
+    sections.forEach((sec,i)=>{
+      const rect=sec.getBoundingClientRect();
+      if(rect.top<=120 && rect.bottom>=120) idx=i;
+    });
+    navLinks.forEach(a=>a.classList.remove('active'));
+    if(navLinks[idx]) navLinks[idx].classList.add('active');
+  };
+  document.addEventListener('scroll',makeActive,{passive:true});
+  makeActive();
+
+  // Footer year
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
